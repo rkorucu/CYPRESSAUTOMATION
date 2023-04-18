@@ -4,15 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "headTest": "npx run test --headed",
+    "chromeTest": "npx run test --browser chrome",
+    "recordDashBoardTest": "npx run test --record --key f289e2dc-d862-40c7-af6d-7c0e17f5a685 --reporter mochawesome",
+    "GreenKartTest": "npx run test --spec \"cypress/integration/GreenKart/*\""
   },
-  "author": "",
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
+  "author": "Ramazan",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.9.0",
-    "cypress-iframe": "^1.0.1"
-    
+    "cypress-iframe": "^1.0.1",
+    "mocha": "^10.1.0",
+    "multiple-cucumber-html-reporter": "^3.3.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
+    "@cypress/browserify-preprocessor": "latest"
   }
-  
-  }
-
+}
